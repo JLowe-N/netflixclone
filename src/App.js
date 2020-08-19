@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
+import Home from './pages/home'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <p>I will be the browse page</p>
         </Route>
         <Route exact path='/'>
-          <p>I am going to be the cloned Netflix App.</p>
+          <Home />
         </Route>
       </Switch>
     </Router>
