@@ -1,5 +1,5 @@
 import React from "react";
-import { Item, Inner, Container, Title, SubTitle, Image } from './styles/jumbotron'
+import { Item, Inner, Container, Title, SubTitle } from './styles/jumbotron'
 
 // Pass & destructure component children, direction for reusability/flexibility
 // Also use spread operator to allow developer to use API as they see fit
@@ -23,8 +23,4 @@ Jumbotron.Title = function JumbotronTitle({ children, ...restProps }) {
 
 Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...restProps }) {
     return <SubTitle {...restProps}>{children}</SubTitle>
-}
-
-Jumbotron.Image = function JumbotronImage({ children, ...restProps }) {
-    return <Image {...restProps}>{children}</Image>
 }
