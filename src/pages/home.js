@@ -1,7 +1,10 @@
 import React from 'react';
+import Jumbotron from '../components/jumbotron/index'
 
 export default function Home() {
     return (
-        <p>I am home</p>
+        <Jumbotron.Container>
+            <p>I am now inside a Jumbotron</p>
+        </Jumbotron.Container>
     )
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Item, Inner, Container } from './styles/jumbotron'
 
 // Pass & destructure component children, direction for reusability/flexibility
 // Also use spread operator to allow developer to use API as they see fit
