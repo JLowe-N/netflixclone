@@ -9,6 +9,7 @@ export function JumbotronContainer() {
                 <Jumbotron key={item.id} direction={item.direction}>
                     <Jumbotron.Title>{item.title}</Jumbotron.Title>
                     <Jumbotron.SubTitle>{item.subTitle}</Jumbotron.SubTitle>
+                    <Jumbotron.Image src={item.image} alt={item.alt} />
                     <p>I am now inside a Jumbotron</p>
                 </Jumbotron>
             )
