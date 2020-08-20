@@ -16,6 +16,13 @@ export function FooterContainer() {
                 </Footer.Column>
 
                 <Footer.Column>
+                    <Footer.Link href="#">Help CenterFAQs</Footer.Link>
+                    <Footer.Link href="#">Jobs</Footer.Link>
+                    <Footer.Link href="#">Terms of Use</Footer.Link>
+                    <Footer.Link href="#">Contact Us</Footer.Link>
+                </Footer.Column>
+
+                <Footer.Column>
                     <Footer.Link href="#">Account</Footer.Link>
                     <Footer.Link href="#">Redeem Gift Cards</Footer.Link>
                     <Footer.Link href="#">Privacy</Footer.Link>
