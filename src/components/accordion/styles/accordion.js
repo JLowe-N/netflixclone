@@ -26,8 +26,9 @@ export const Title = styled.h1`
     }
 `;
 
+// Used to hold the item map result
 export const Frame = styled.div`
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     max-width: 1200px;
 
 `;
