@@ -1,5 +1,5 @@
 import React from "react";
-import { Item, Inner, Container, Title, SubTitle, Image } from './styles/jumbotron'
+import { Item, Inner, Container, Pane, Title, SubTitle, Image } from './styles/jumbotron';
 
 // Pass & destructure component children, direction for reusability/flexibility
 // Also use spread operator to allow developer to use API as they see fit
@@ -15,6 +15,10 @@ export default function Jumbotron({ children, direction = 'row', ...restProps })
 // Key to Compound Components Design Pattern
 Jumbotron.Container = function JumbotronContainer({ children, ...restProps }) {
     return <Container {...restProps}>{children}</Container>;
+}
+
+Jumbotron.Pane = function JumbotronPane({ children, ...restProps }) {
+    return <Pane {...restProps}>{children}</Pane>;
 }
 
 Jumbotron.Title = function JumbotronTitle({ children, ...restProps }) {
