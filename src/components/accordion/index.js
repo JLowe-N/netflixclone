@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Inner, Item, Title, Header, Body } from './styles/accordion';
+import { Container, Inner, Frame, Item, Title, Header, Body } from './styles/accordion';
 
 
 export default function Accordion({ children, ...restProps }) {
@@ -8,6 +8,10 @@ export default function Accordion({ children, ...restProps }) {
             <Inner>{children}</Inner>
         </Container>
     )
+}
+
+Accordion.Frame = function AccordionFrame({ children, ...restProps }) {
+    return <Frame {...restProps}>{children}</Frame>
 }
 
 Accordion.Item = function AccordionItem({ children, ...restProps }) {
