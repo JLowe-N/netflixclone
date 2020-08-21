@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form } from '../components';
 import { SIGN_UP } from '../constants/routes'
 
-export function FormContainer({children}) {
+export function SignInContainer({children}) {
     const [error, setError] = useState(null)
     const [emailAddress, setEmailAddress] = useState('')
     const [password, setPassword] = useState('')
