@@ -4,4 +4,5 @@ export { default as Footer } from './footer';
 export { default as Accordion } from './accordion'
 export { default as OptForm } from './opt-form'
 export { default as Feature } from './feature'
+export { default as Form } from './form'
 // make sure to add components to master export and import
