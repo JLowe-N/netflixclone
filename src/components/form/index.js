@@ -40,12 +40,8 @@ Form.SubmitButton = function FormSubmitButton({ children, ...restProps}) {
     return <SubmitButton {...restProps}>{children}</SubmitButton>;
 }
 
-Form.Link = function FormLink({to, children, ...restProps}) {
-    return (
-        <ReactRouterLink to={to}>
-            <Link {...restProps}>{children}</Link>
-        </ReactRouterLink>
-    )
+Form.Link = function FormLink({children, ...restProps}) {
+    return <Link {...restProps}>{children}</Link>
 }
 
 Form.Error = function FormError({children, ...restProps}) {

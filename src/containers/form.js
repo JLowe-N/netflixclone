@@ -7,9 +7,19 @@ export function FormContainer({children}) {
     const [emailAddress, setEmailAddress] = useState('')
     const [password, setPassword] = useState('')
 
+    const isValid = () => {
+        if (emailAddress.length === 0 | password.length === 0) {
+            setError(()=> "User and password required for log in.")
+        }
+    }
+
+    const isInvalid = emailAddress === '' | password === ''
+
+    console.log(error)
+
     const handleSignin = (event) => {
         event.preventDefault();
-
+        isValid()
         // call in here to firebase to auth the user
         // if there's an error, populate the error state
     }
@@ -34,7 +44,7 @@ export function FormContainer({children}) {
                 autoComplete="off"
                 onChange={({target}) => setPassword(target.value)}
                 />
-                <Form.SubmitButton disabled={false} type="submit">
+                <Form.SubmitButton disabled={isInvalid} type="submit">
                    Sign In
                 </Form.SubmitButton>
 
