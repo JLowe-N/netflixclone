@@ -17,10 +17,9 @@ export function FaqsContainer() {
             </Accordion.Frame>
 
             <OptForm>
-                <OptForm.Input placeholder="Email Address" />
-                <OptForm.Button>
-                    <OptForm.Text>Try It</OptForm.Text>
-                </OptForm.Button>
+                <OptForm.Input placeholder="Email address" />
+                <OptForm.Button>Try 30 Days Free</OptForm.Button>
+                <OptForm.Text>Ready to watch? Enter your email to create or restart your membership.</OptForm.Text>
             </OptForm>
         </Accordion>
     )
