@@ -4,11 +4,18 @@ import { GlobalStyles } from './global-styles';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { FirebaseContext } from './context/firebase'
+
+const config = process.env.REACT_APP_NETFLIXCLONE_CONFIG;
+
+const firebase = window.firebase.initializeApp(config);
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyles />
-    <App />
+    <FirebaseContext.Provider>
+      <GlobalStyles />
+      <App />
+    </FirebaseContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
