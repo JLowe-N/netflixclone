@@ -7,15 +7,16 @@ import { FooterContainer } from './footer';
 
 export function BrowseContainer() {
     const [profile, setProfile] = useState({});
+
     const user = {
         displayName: "Justin",
         photoURL: "1"
     }
+;
     return profile.displayName ? (
         <>
             <p>Browse Container</p>
             <FooterContainer />
         </>)
-        : (<SelectProfileContainer />
-            );
+        : (<SelectProfileContainer user={user} setProfile={setProfile} />);
 }
