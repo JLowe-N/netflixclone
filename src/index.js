@@ -4,15 +4,16 @@ import { GlobalStyles } from './global-styles';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { firebase } from './lib/firebase.prod';
 import { FirebaseContext } from './context/firebase'
 
-const config = process.env.REACT_APP_NETFLIXCLONE_CONFIG;
+// const config = process.env.REACT_APP_NETFLIXCLONE_CONFIG;
 
-const firebase = window.firebase.initializeApp(config);
+// const firebase = window.firebase.initializeApp(config);
 
 ReactDOM.render(
   <React.StrictMode>
-    <FirebaseContext.Provider>
+    <FirebaseContext.Provider  value={{ firebase }}>
       <GlobalStyles />
       <App />
     </FirebaseContext.Provider>
