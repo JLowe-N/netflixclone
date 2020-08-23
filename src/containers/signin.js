@@ -1,30 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { FirebaseContext } from '../context/firebase';
+import { useHistory } from 'react-router-dom';
 import { Form } from '../components';
-import { SIGN_UP } from '../constants/routes'
+import * as ROUTES from '../constants/routes';
+
 
 export function SignInContainer({children}) {
-    const [error, setError] = useState(null)
-    const [emailAddress, setEmailAddress] = useState('')
-    const [password, setPassword] = useState('')
+    const { firebase } = useContext(FirebaseContext);
+    const history = useHistory();
+    const [error, setError] = useState(null);
+    const [emailAddress, setEmailAddress] = useState('');
+    const [password, setPassword] = useState('');
 
-    const isValid = () => {
-        if (emailAddress.length === 0 | password.length === 0) {
-            setError(()=> "User and password required for log in.")
-        }
-    }
-
-    const isInvalid = emailAddress === '' | password === ''
-
-    console.log(error)
+    const isInvalid = emailAddress === '' | password === '';
 
     const handleSignin = (event) => {
         event.preventDefault();
-        isValid()
-        // call in here to firebase to auth the user
-        // if there's an error, populate the error state
-    }
 
-    console.log(emailAddress)
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(emailAddress, password)
+            .then(() => {
+                setEmailAddress('');
+                setPassword('');
+                setError('');
+                history.push(ROUTES.BROWSE);
+            })
+            .catch((error) => setError(error.message)); 
+        
+
+    }
 
     return (
         <Form>
@@ -49,7 +54,7 @@ export function SignInContainer({children}) {
                 </Form.SubmitButton>
 
                 <Form.Text>
-                    New to Netflix? <Form.Link to={SIGN_UP}>Sign up now.</Form.Link>
+                    New to Netflix? <Form.Link to={ROUTES.SIGN_UP}>Sign up now.</Form.Link>
                 </Form.Text>
                 <Form.TextSmall>
                     This page is protected by Google reCAPTCHA.

@@ -9,7 +9,7 @@ import { FirebaseContext } from './context/firebase'
 
 // const config = process.env.REACT_APP_NETFLIXCLONE_CONFIG;
 
-// const firebase = window.firebase.initializeApp(config);
+
 
 ReactDOM.render(
   <React.StrictMode>
