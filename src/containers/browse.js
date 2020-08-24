@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { Header } from '../components';
+import React, { useState, useContext, useEffect } from 'react';
+import { Loading, Header } from '../components';
 import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
@@ -8,18 +8,25 @@ import { FooterContainer } from './footer';
 export function BrowseContainer() {
     const [profile, setProfile] = useState({});
     const [category, setCategory] = useState({});
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
 
-    const { firebase } = useContext(FirebaseContext)
+    const { firebase } = useContext(FirebaseContext);
 
     const user = {
         displayName: "Justin",
         photoURL: "1"
-    }
-;
+    };
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 10000)
+    })
+
     return profile.displayName ? (
         <>
+        {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
             <Header src="joker1" dontShowOnSmallViewport>
                 <Header.Frame>
                     <Header.Group>
@@ -37,6 +44,20 @@ export function BrowseContainer() {
                     </Header.Group>
                     <Header.Group>
                         <Header.Search value={searchTerm} setSearchTerm={setSearchTerm} />
+                        <Header.Profile>
+                            <Header.Picture src={user.photoURL} />
+                            <Header.Dropdown>
+                                <Header.Group>
+                                    <Header.Picture src={user.photoURL} />
+                                    <Header.Link>{user.displayName}</Header.Link>
+                                </Header.Group>
+                                <Header.Group>
+                                    <Header.Link onClick={() => firebase.auth.signOut()}>
+                                        Sign Out
+                                    </Header.Link>
+                                </Header.Group>
+                            </Header.Dropdown>
+                        </Header.Profile>
                     </Header.Group>
                 </Header.Frame>
 

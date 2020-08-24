@@ -13,7 +13,10 @@ import {
     PlayButton,
     Search,
     SearchIcon,
-    SearchInput 
+    SearchInput,
+    Profile,
+    Picture,
+    Dropdown 
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...restProps }) {
@@ -64,14 +67,26 @@ Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps}
     )
 }
 
-Header.Feature = function HeaderFeature({ children, ...props }) {
-    return <Feature {...props}>{children}</Feature>;
+Header.Feature = function HeaderFeature({ children, ...restProps }) {
+    return <Feature {...restProps}>{children}</Feature>;
 }
 
-Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...props }) {
-    return <FeatureCallOut>{children}</FeatureCallOut>;
+Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }) {
+    return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>;
 }
 
-Header.PlayButton = function HeaderPlayButton({ children, ...props }) {
-    return <PlayButton {...props}>{children}</PlayButton>;
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+    return <PlayButton {...restProps}>{children}</PlayButton>;
+}
+
+Header.Profile = function HeaderProfile({ children, ...restProps}) {
+    return <Profile {...restProps}>{children}</Profile>
+}
+
+Header.Picture = function HeaderPicture({ src, children, ...restProps }) {
+    return <Picture src={`images/users/${src}.png`} {...restProps}>{children}</Picture>;
+}
+
+Header.Dropdown = function HeaderDropdown({ children, ...restProps}) {
+    return <Dropdown {...restProps}>{children}</Dropdown>
 }
