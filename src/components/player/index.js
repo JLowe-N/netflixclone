@@ -23,6 +23,7 @@ Player.Video = function PlayerVideo({ ...restProps }) {
                     <video id="netflix-player" controls>
                         <source src="/videos/bunny.mp4" type="video/mp4" />
                     </video>
+                    <Close />
                 </Inner>
             </Overlay>,
             document.body
