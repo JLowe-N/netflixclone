@@ -21,7 +21,7 @@ Player.Video = function PlayerVideo({ ...restProps }) {
             <Overlay onClick={() => setShowPlayer(false)}>
                 <Inner>
                     <video id="netflix-player" controls>
-                        <source src="/videos/bunny.mp4" type="video/mp4" />
+                        <source src="/videos/movies.mp4" type="video/mp4" />
                     </video>
                     <Close />
                 </Inner>
