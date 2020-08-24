@@ -2,10 +2,10 @@ export default function selectionMap({ series, films }) {
     return {
         series: [
             { title: 'Documentaries', data: series.filter((item) => item.genre === 'documentaries') },
-            { title: 'Comedies', data: series.filter((item) => item.genre === 'documentaries') },
-            { title: 'Children', data: series.filter((item) => item.genre === 'documentaries') },
-            { title: 'Crime', data: series.filter((item) => item.genre === 'documentaries') },
-            { title: 'Feel Good', data: series.filter((item) => item.genre === 'documentaries') },
+            { title: 'Comedies', data: series.filter((item) => item.genre === 'comedies') },
+            { title: 'Children', data: series.filter((item) => item.genre === 'children') },
+            { title: 'Crime', data: series.filter((item) => item.genre === 'crime') },
+            { title: 'Feel Good', data: series.filter((item) => item.genre === 'feel-good') },
         ],
         films: [
             { title: 'Drama', data: films.filter((item) => item.genre === 'drama') },

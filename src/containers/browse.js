@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Loading, Header } from '../components';
+import { Loading, Header, Card } from '../components';
 import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
@@ -7,7 +7,7 @@ import { FooterContainer } from './footer';
 
 export function BrowseContainer({ slides }) {
     const [profile, setProfile] = useState({});
-    const [category, setCategory] = useState({});
+    const [category, setCategory] = useState('series');
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [slideRows, setSlideRows] = useState([]);
@@ -22,8 +22,8 @@ export function BrowseContainer({ slides }) {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 10000)
-    })
+        }, 2000)
+    }, [user])
 
     useEffect(() => {
         setSlideRows(slides[category]);
@@ -78,7 +78,7 @@ export function BrowseContainer({ slides }) {
             </Header>
 
             <Card.Group>
-                {slideRows.map((slideItem) => {
+                {slideRows.map((slideItem) => (
                     <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
                         <Card.Title>{slideItem.title}</Card.Title>
                         <Card.Entities>
@@ -93,7 +93,7 @@ export function BrowseContainer({ slides }) {
                             ))}
                         </Card.Entities>
                     </Card>
-                })}
+                ))}
             </Card.Group>
 
             <FooterContainer />

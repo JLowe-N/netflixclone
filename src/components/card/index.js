@@ -5,11 +5,12 @@ import {
     Title,
     SubTitle,
     Text,
+    FeatureText,
     Feature,
     FeatureTitle,
     FeatureClose,
     Maturity,
-    Context,
+    Content,
     Meta,
     Entities,
     Item,
@@ -54,13 +55,13 @@ Card.Meta = function CardMeta({ children, ...restProps}) {
 }
 
 Card.Item = function CardItem({ item, children, ...restProps}) {
-    const { setShowFeatures, setItemFeatures } = useContext(FeatureContext);
+    const { setShowFeature, setItemFeature } = useContext(FeatureContext);
 
     return (
         <Item
             onClick={() => {
                 setItemFeature(item);
-                setShowFeatures(true);
+                setShowFeature(true);
             }}
             {...restProps}
         >
