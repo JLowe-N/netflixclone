@@ -21,12 +21,13 @@ export function SignInContainer({children}) {
             .auth()
             .signInWithEmailAndPassword(emailAddress, password)
             .then(() => {
-                setEmailAddress('');
-                setPassword('');
-                setError('');
                 history.push(ROUTES.BROWSE);
             })
-            .catch((error) => setError(error.message)); 
+            .catch((error) => {
+                setEmailAddress('');
+                setPassword('');
+                setError(error.message);
+            }); 
         
 
     }
