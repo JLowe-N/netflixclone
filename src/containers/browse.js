@@ -35,7 +35,7 @@ export function BrowseContainer({ slides }) {
         } else {
             setSlideRows(slides[category]);
         }
-    }, [searchTerm, category, slideRows, slides]);
+    }, [searchTerm, slides, category);
 
 
 
@@ -48,12 +48,12 @@ export function BrowseContainer({ slides }) {
                         <Header.Logo to={ROUTES.HOME} src="images/misc/logo.svg" alt="Netflix" />
                         <Header.Link
                             active={category === 'series' ? 'true' : 'false'}
-                            onClick={() => setCategory('series')}>
+                            onClick={() => { setCategory('series') }}>
                             Series
                         </Header.Link>
                         <Header.Link
                             active={category === 'films' ? 'true' : 'false'}
-                            onClick={() => setCategory('films')}>
+                            onClick={() => { setCategory('films') }}>
                             Films
                         </Header.Link>
                     </Header.Group>
@@ -64,7 +64,7 @@ export function BrowseContainer({ slides }) {
                             <Header.Dropdown>
                                 <Header.Group>
                                     <Header.Picture src={user.photoURL} />
-                                    <Header.Link to={ROUTES.PROFILE}>{user.displayName}</Header.Link>
+                                    <Header.RouteLink to={ROUTES.PROFILE}>{user.displayName}</Header.RouteLink>
                                 </Header.Group>
                                 <Header.Group>
                                     <Header.Link onClick={() => firebase.auth().signOut()}>
@@ -83,7 +83,10 @@ export function BrowseContainer({ slides }) {
                         City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
                         futile attempt to feel like he's part of the world around him.
                     </Header.Text>
-                    <Header.PlayButton>Play</Header.PlayButton>
+                    <Player>
+                        <Player.Button />
+                        <Player.Video />
+                    </Player>
                 </Header.Feature>
             </Header>
 
@@ -105,7 +108,7 @@ export function BrowseContainer({ slides }) {
                         <Card.Feature category={category}>
                             <Player>
                                 <Player.Button />
-                                <Player.Video / >
+                                <Player.Video />
                             </Player>
                         </Card.Feature>
                     </Card>

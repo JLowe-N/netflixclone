@@ -8,6 +8,7 @@ import {
     Group, 
     Text, 
     Link,
+    RouteLink,
     Feature,
     FeatureCallOut,
     PlayButton,
@@ -48,6 +49,10 @@ Header.ButtonLink = function HeaderButtonLink({ children, ...restProps }) {
 
 Header.Link = function HeaderLink({ children , ...restProps }) {
     return <Link {...restProps}>{children}</Link>;
+}
+
+Header.RouteLink = function HeadeRouteLink({ children , ...restProps }) {
+    return <RouteLink {...restProps}>{children}</RouteLink>;
 }
 
 Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps}) {
