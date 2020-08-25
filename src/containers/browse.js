@@ -14,17 +14,13 @@ export function BrowseContainer({ slides }) {
     const [slideRows, setSlideRows] = useState([]);
 
     const { firebase } = useContext(FirebaseContext);
-
-    const user = {
-        displayName: "Justin",
-        photoURL: "1"
-    };
+    const user = firebase.auth().currentUser || {};
 
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
         }, 2000)
-    }, [user]);
+    }, [profile.displayName]);
 
     useEffect(() => {
         setSlideRows(slides[category]);

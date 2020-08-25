@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as ROUTES from './constants/routes'
 import './App.css';
-import { Home, Signin, Signup, Browse } from './pages';
+import { Home, Signin, Signup, Browse, Profile } from './pages';
 import { useAuthListener } from './hooks';
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
 
@@ -12,6 +12,9 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route user={user} path="/profile">
+         <Profile />
+        </Route>
         <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_IN}>
           <Signin />
         </IsUserRedirect>
