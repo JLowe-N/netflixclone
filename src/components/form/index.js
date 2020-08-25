@@ -10,7 +10,6 @@ import {
     Link, 
     Error 
 } from './styles/form';
-import { Link as ReactRouterLink } from 'react-router-dom';
 
 export default function Form({children, ...restProps}) {
     return <Container {...restProps}>{children}</Container>;
@@ -41,10 +40,10 @@ Form.SubmitButton = function FormSubmitButton({ children, ...restProps}) {
 }
 
 Form.Link = function FormLink({children, ...restProps}) {
-    return <Link {...restProps}>{children}</Link>
+    return <Link {...restProps}>{children}</Link>;
 }
 
 Form.Error = function FormError({children, ...restProps}) {
-    return <Error {...restProps}>{children}</Error>
+    return <Error {...restProps}>{children}</Error>;
 }
 

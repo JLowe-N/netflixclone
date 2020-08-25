@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, createContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { FirebaseContext } from '../context/firebase'
 
 export default function useAuthListener() {
@@ -20,7 +20,7 @@ export default function useAuthListener() {
         // Clean up listener when unmounted
         return () => listener();
 
-    }, []);
+    }, [firebase]);
 
     return { user };
 }
