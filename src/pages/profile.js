@@ -19,7 +19,7 @@ export default function Profile() {
     useEffect(() => {
         setDisplayName(user.displayName);
         setAvatar(user.photoURL);
-    }, [isUpdating])
+    }, [isUpdating, user.displayName, user.photoURL])
     
 
 
