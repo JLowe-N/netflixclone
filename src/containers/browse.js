@@ -35,7 +35,7 @@ export function BrowseContainer({ slides }) {
         } else {
             setSlideRows(slides[category]);
         }
-    }, [searchTerm, slides, category);
+    }, [searchTerm, slides, category]);
 
 
 

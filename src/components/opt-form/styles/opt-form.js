@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link as ReactRouterLink} from 'react-router-dom';
 
 export const Container = styled.div`
     display: flex;
@@ -22,8 +23,9 @@ export const Input = styled.input`
     box-sizing: border-box;
 `;
 
-export const Button = styled.button`
+export const ButtonLink = styled(ReactRouterLink)`
     display: flex;
+    text-decoration: none;
     align-items: center;
     height: 70px;
     background: #e50914;
@@ -33,6 +35,10 @@ export const Button = styled.button`
     font-size: 26px;
     border: 0;
     cursor: pointer;
+
+    a {
+        text-decoration: none;
+    }
 
     @media (max-width: 1000px) {
         height: 50px;

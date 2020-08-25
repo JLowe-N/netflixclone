@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../context/firebase'
 import { HeaderContainer } from '../containers/header';
@@ -6,7 +6,7 @@ import { FooterContainer } from '../containers/footer';
 import { Form } from '../components';
 import * as ROUTES from '../constants/routes';
 
-export default function SignUp() {
+export default function SignUp(props) {
     const history = useHistory();
     const { firebase } = useContext(FirebaseContext);
 
@@ -15,6 +15,10 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
+    useEffect(() => {
+            setEmailAddress(history.location.data)
+    }, [history.location.data]);
+    
     const isInvalid = firstName === '' || emailAddress === '' || password === '';
 
     const handleSignup = (e) => {

@@ -14,7 +14,7 @@ export default function Home() {
                     <Feature.SubTitle>Watch anywhere. Cancel anytime.</Feature.SubTitle>
                     <OptForm>
                         <OptForm.Input placeholder="Email address" />
-                        <OptForm.Button>Try 30 Days Free</OptForm.Button>
+                        <OptForm.ButtonLink>Try 30 Days Free</OptForm.ButtonLink>
                         <OptForm.Break />
                         <OptForm.Text>Ready to watch? Enter your email to create or restart your membership.</OptForm.Text>
                     </OptForm>

@@ -1,19 +1,38 @@
-import React from "react";
-import { Container, Input, Button, Text, Break } from './styles/opt-form';
+import React, { useState, useContext, createContext } from "react";
+import { Container, Input, ButtonLink, Text, Break } from './styles/opt-form';
+
+const OptContext = createContext();
 
 export default function OptForm({ children, ...restProps }) {
-    return <Container {...restProps}>{children}</Container>;
+    const [ inputState, setInputState] = useState('');
+
+    return (
+        <OptContext.Provider value={{ inputState, setInputState }}>
+            <Container {...restProps}>{children}</Container>
+        </OptContext.Provider>
+    );
+    ;
 }
 
 OptForm.Input = function OptFormInput({ children, ...restProps }) {
-    return <Input {...restProps} />;
+    const { inputState, setInputState } = useContext(OptContext);
+
+    return <Input value={inputState} onChange={({target}) => setInputState(target.value)} {...restProps} />;
 }
 
-OptForm.Button = function OptFormButton({ children, ...restProps }) {
+OptForm.ButtonLink = function OptFormButtonLink({ children, ...restProps }) {
+    const { inputState } = useContext(OptContext);
+
     return (
-        <Button {...restProps}>
-            {children} <img src="images/icons/chevron-right.png" alt="Try Now" />
-        </Button>
+            <ButtonLink 
+                to={{
+                    pathname: "/signup",
+                    data: inputState
+                }} 
+                {...restProps}
+            >
+                {children} <img src="images/icons/chevron-right.png" alt="Try Now" />
+            </ButtonLink>
     )
 }
 
