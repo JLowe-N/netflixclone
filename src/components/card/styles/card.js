@@ -20,6 +20,10 @@ export const Container = styled.div`
         margin-left: 30px;
     }
 }
+
+&:last-of-type {
+    margin-bottom: 0;
+}
 `;
 
 export const Group = styled.div`
@@ -29,7 +33,9 @@ export const Group = styled.div`
     ${({ margin }) => margin && `margin: ${margin}`};
 
     > ${Container}:first-of-type {
-        margin-top: -150px;
+        @media (min-width: 1100px) {
+            margin-top: -150px;
+        }
     }
 `;
 
@@ -88,7 +94,7 @@ export const Item = styled.div`
         z-index: 99;
     }
 
-    @media (min-width: 1000px) {
+    @media (min-width: 1200px) {
         &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle} {
             display: block;
             z-index: 100;
@@ -100,6 +106,14 @@ export const Item = styled.div`
 
         @media (max-width: 1000px) {
             margin-left: 30px;
+        }
+    }
+
+    &:last-of-type {
+        margin-right: 56px;
+
+        @media (max-width: 1000px) {
+            margin-right: 30px;
         }
     }
 `;
