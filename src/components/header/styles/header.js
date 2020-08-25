@@ -4,7 +4,6 @@ import { Link as ReactRouterLink } from 'react-router-dom'
 export const Background = styled.section`
     display: flex;
     flex-direction: column;
-    align-items: space-between;
     background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` :
         '../images/misc/home-bg.jpg')}) top left / cover no-repeat;
 
@@ -42,7 +41,7 @@ export const Logo = styled.img`
     }
 `;
 
-export const Link = styled.p`
+export const Link = styled(ReactRouterLink)`
     color: #fff;
     text-decoration: none;
     margin-right: 30px;
@@ -132,6 +131,11 @@ export const PlayButton = styled.button`
 export const Search = styled.div`
     display: flex;
     align-items: center;
+
+    svg {
+        color: white;
+        cursor: pointer;
+    }
 
     @media(max-width: 700px) {
         display: none;

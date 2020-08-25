@@ -42,7 +42,7 @@ export function BrowseContainer({ slides }) {
     return profile.displayName ? (
         <>
         {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
-            <Header src="joker1" dontShowOnSmallViewport>
+            <Header src="joker1" dontShowOnSmallViewPort>
                 <Header.Frame>
                     <Header.Group>
                         <Header.Logo to={ROUTES.HOME} src="images/misc/logo.svg" alt="Netflix" />
@@ -60,11 +60,11 @@ export function BrowseContainer({ slides }) {
                     <Header.Group>
                         <Header.Search value={searchTerm} setSearchTerm={setSearchTerm} />
                         <Header.Profile>
-                            <Header.Picture src={user.photoURL} />
+                            <Header.Picture src={user.photoURL ? user.photoURL : 1} />
                             <Header.Dropdown>
                                 <Header.Group>
                                     <Header.Picture src={user.photoURL} />
-                                    <Header.Link>{user.displayName}</Header.Link>
+                                    <Header.Link to={ROUTES.PROFILE}>{user.displayName}</Header.Link>
                                 </Header.Group>
                                 <Header.Group>
                                     <Header.Link onClick={() => firebase.auth().signOut()}>

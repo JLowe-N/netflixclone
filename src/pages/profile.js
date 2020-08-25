@@ -1,20 +1,95 @@
-import React, { useState } from 'react';
-import { HeaderContainer } from '../containers/header';
+import React, { useState, useContext, useEffect } from 'react';
+import { Header } from '../components';
+import * as ROUTES from '../constants/routes'
+import { Info } from '../components'
 import { FooterContainer } from '../containers/footer';
+import { FirebaseContext } from '../context/firebase';
 
 export default function Profile() {
-    const [ avatar, setAvatar ] = useState(null)
+    const [ displayName, setDisplayName ] = useState('');
+    const [ newDisplayName, setNewDisplayName ] = useState('');
+    const [ avatar, setAvatar ] = useState(null);
+    const [ newAvatar, setNewAvatar ] = useState(null);
+    const [ isUpdating, setIsUpdating] = useState(false);
+
+    const { firebase } = useContext(FirebaseContext)
+
+    const user = firebase.auth().currentUser || {};
+
+    useEffect(() => {
+        setDisplayName(user.displayName);
+        setAvatar(user.photoURL);
+    }, [isUpdating])
+    
+
+
+    const handleAvatarUpdate = () => {
+        setIsUpdating(true)
+        user.updateProfile({
+            ...user,
+            photoURL: newAvatar
+        }).then(() => {
+            setIsUpdating(false);
+        }).catch((error) => console.log(error));
+        setNewAvatar(null)
+    }
+
+    const handleNameUpdate = () => {
+        setIsUpdating(true)
+        user.updateProfile({
+            ...user,
+            displayName: newDisplayName
+        }).then(() => {
+            setIsUpdating(false);
+        }).catch((error) => console.log(error));
+        setNewDisplayName(null)
+    }
+
 
     return (
         <>
-            <HeaderContainer />
-            <p> Please select a profile image:</p>
-            <img src="images/users/1.png" alt="Avatar 1" />
-            <img src="images/users/2.png" alt="Avatar 2" />
-            <img src="images/users/3.png" alt="Avatar 3" />
-            <img src="images/users/4.png" alt="Avatar 4" />
-            <img src="images/users/5.png" alt="Avatar 5" />
-            <button>Update Avatar</button>
+            <Header>
+                <Header.Frame>
+                    <Header.Group>
+                        <Header.Logo to={ROUTES.HOME} src="images/misc/logo.svg" alt="Netflix" />
+                    </Header.Group>
+                    <Header.Group>
+                        <Header.ButtonLink to={ROUTES.BROWSE}>Browse</Header.ButtonLink>
+                        <Header.Profile>
+                            <Header.Picture src={avatar ? avatar : 1} />
+                            <Header.Dropdown>
+                                <Header.Group>
+                                    <Header.Picture src={displayName} />
+                                    <Header.Link to={ROUTES.PROFILE}>{displayName}</Header.Link>
+                                </Header.Group>
+                                <Header.Group>
+                                    <Header.Link onClick={() => firebase.auth().signOut()}>
+                                        Sign Out
+                                    </Header.Link>
+                                </Header.Group>
+                            </Header.Dropdown>
+                        </Header.Profile>
+                    </Header.Group>
+                </Header.Frame>
+            </Header>
+            <Info>
+                <Info.Title>User Profile</Info.Title>
+                <Info.Text> Current Display Name: </Info.Text>
+                <Info.Text> {displayName} </Info.Text>
+                <Info.Input type="text" value={newDisplayName} onChange={({target}) => setNewDisplayName(target.value)} />
+                <Info.SubmitButton onClick={() => handleNameUpdate()} disabled={newDisplayName === ''}>{newDisplayName === '' ? "Select Name" : "Update Name" }</Info.SubmitButton>
+                <Info.Text> Current Avatar: </Info.Text>
+                <img src={`images/users/${avatar}.png`} alt="Your Avatar" />
+                <Info.Text> Please select a profile image:</Info.Text>
+                <Info.List>
+                    <Info.ImageSelect src="1" onClick={() => setNewAvatar(1)} alt="Avatar 1" highlight={newAvatar === 1}/>
+                    <Info.ImageSelect src="2" onClick={() => setNewAvatar(2)} alt="Avatar 2" highlight={newAvatar === 2}/>
+                    <Info.ImageSelect src="3" onClick={() => setNewAvatar(3)} alt="Avatar 3" highlight={newAvatar === 3}/>
+                    <Info.ImageSelect src="4" onClick={() => setNewAvatar(4)} alt="Avatar 4" highlight={newAvatar === 4}/>
+                    <Info.ImageSelect src="5" onClick={() => setNewAvatar(5)} alt="Avatar 5" highlight={newAvatar === 5}/>
+                </Info.List>
+    <Info.SubmitButton onClick={() => handleAvatarUpdate()} disabled={!newAvatar}>{!newAvatar ? "Select Avatar" : "Update Avatar" }</Info.SubmitButton>
+            </Info>
             <FooterContainer />
         </>
     )

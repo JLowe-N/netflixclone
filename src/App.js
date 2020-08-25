@@ -12,9 +12,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route user={user} path="/profile">
+        <ProtectedRoute user={user} path={ROUTES.PROFILE}>
          <Profile />
-        </Route>
+        </ProtectedRoute>
         <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_IN}>
           <Signin />
         </IsUserRedirect>
