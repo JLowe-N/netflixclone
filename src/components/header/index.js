@@ -49,7 +49,7 @@ Header.ButtonLink = function HeaderButtonLink({ children, ...restProps }) {
 }
 
 Header.ExternalButtonLink = function HeaderButtonLink({ children, ...restProps }) {
-    return <ButtonLink {...restProps}>{children}</ButtonLink>;
+    return <ExternalButtonLink {...restProps}>{children}</ExternalButtonLink>;
 }
 
 Header.Link = function HeaderLink({ children, ...restProps }) {

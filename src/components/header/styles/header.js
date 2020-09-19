@@ -77,6 +77,7 @@ export const ButtonLink = styled(ReactRouterLink)`
     display: block;
     background-color: #e50914;
     border-radius: 3px;
+    margin-left: 40px;
     width: 84px;
     color: white;
     height: fit-content;
@@ -96,7 +97,6 @@ export const ExternalButtonLink = styled.a`
     display: block;
     background-color: #e50914;
     border-radius: 3px;
-    width: 84px;
     color: white;
     height: fit-content;
     border: 0;

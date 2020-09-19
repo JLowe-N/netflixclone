@@ -10,13 +10,15 @@ export function HeaderContainer({ children }) {
                     to={ROUTES.HOME}
                     src="/images/misc/logo.svg"
                     alt="Netflix" />
-                <Header.ExternalButtonLink
-                    target="_blank"
-                    href="https://github.com/JLowe-N/netflixclone"
-                >
-                    See Repo
-                </Header.ExternalButtonLink>
-                <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
+                <Header.Group>
+                    <Header.ExternalButtonLink
+                        target="_blank"
+                        href="https://github.com/JLowe-N/netflixclone"
+                    >
+                        See Repo
+                    </Header.ExternalButtonLink>
+                    <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
+                </Header.Group>
             </Header.Frame>
             {children}
         </Header>

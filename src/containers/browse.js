@@ -27,7 +27,7 @@ export function BrowseContainer({ slides }) {
     }, [slides, category]);
 
     useEffect(() => {
-        const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre' ]});
+        const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] });
         const results = fuse.search(searchTerm).map(({ item }) => item);
 
         if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
@@ -41,7 +41,7 @@ export function BrowseContainer({ slides }) {
 
     return profile.displayName ? (
         <>
-        {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
+            {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
             <Header src="joker1" dontShowOnSmallViewPort>
                 <Header.Frame>
                     <Header.Group>
@@ -56,6 +56,14 @@ export function BrowseContainer({ slides }) {
                             onClick={() => { setCategory('films') }}>
                             Films
                         </Header.Link>
+                    </Header.Group>
+                    <Header.Group>
+                        <Header.ExternalButtonLink
+                            target="_blank"
+                            href="https://github.com/JLowe-N/netflixclone"
+                        >
+                            See Repo
+                        </Header.ExternalButtonLink>
                     </Header.Group>
                     <Header.Group>
                         <Header.Search value={searchTerm} setSearchTerm={setSearchTerm} />
