@@ -37,13 +37,6 @@ export function SignInContainer({ children }) {
         firebase
             .auth()
             .signInWithEmailAndPassword("JLowe-N@test.com", "test123456")
-            .then((result) => {
-                const user = result.user
-                user.updateProfile({
-                    ...user,
-                    displayName: "Justin Lowen"
-                })
-            })
             .then(() => {
                 history.push(ROUTES.BROWSE);
             })

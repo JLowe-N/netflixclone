@@ -45,6 +45,7 @@ export default function Profile() {
         setNewDisplayName(null)
     }
 
+    const isDemoUser = user.displayName === "Justin Lowen"
 
     return (
         <>
@@ -54,6 +55,12 @@ export default function Profile() {
                         <Header.Logo to={ROUTES.HOME} src="images/misc/logo.svg" alt="Netflix" />
                     </Header.Group>
                     <Header.Group>
+                        <Header.ExternalButtonLink
+                            target="_blank"
+                            href="https://github.com/JLowe-N/netflixclone"
+                        >
+                            See Repo
+                        </Header.ExternalButtonLink>
                         <Header.ButtonLink to={ROUTES.BROWSE}>Browse</Header.ButtonLink>
                         <Header.Profile>
                             <Header.Picture src={avatar ? avatar : 1} />
@@ -76,8 +83,9 @@ export default function Profile() {
                 <Info.Title>User Profile</Info.Title>
                 <Info.Text> Current Display Name: </Info.Text>
                 <Info.Text> {displayName} </Info.Text>
-                <Info.Input type="text" value={newDisplayName} onChange={({ target }) => setNewDisplayName(target.value)} />
-                <Info.SubmitButton onClick={() => handleNameUpdate()} disabled={newDisplayName === ''}>{newDisplayName === '' ? "Select Name" : "Update Name"}</Info.SubmitButton>
+                <Info.Input disabled={isDemoUser} type="text" value={newDisplayName} onChange={({ target }) => setNewDisplayName(target.value)} />
+                <Info.SubmitButton onClick={() => handleNameUpdate()} disabled={newDisplayName === '' || isDemoUser}>{newDisplayName === '' ? "Select Name" : "Update Name"}</Info.SubmitButton>
+                {isDemoUser && <Info.Text>Profile name update disabled for Demo Account.</Info.Text>}
                 <Info.Text> Current Avatar: </Info.Text>
                 <img src={`images/users/${avatar}.png`} alt="Your Avatar" />
                 <Info.Text> Please select a profile image:</Info.Text>

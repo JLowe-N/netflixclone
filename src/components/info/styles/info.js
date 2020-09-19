@@ -63,7 +63,7 @@ export const ImageSelect = styled.img`
         border: 5px solid white;
     }
 
-    ${({highlight}) => highlight && `border: 5px solid #f40612`}
+    ${({ highlight }) => highlight && `border: 5px solid #f40612`}
 `;
 
 export const Form = styled.form`
@@ -85,6 +85,10 @@ export const Input = styled.input`
 
     &:last-of-type {
         margin-bottom: 30px;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
     }
 `;
 
@@ -109,6 +113,7 @@ export const SubmitButton = styled.button`
 
     &:disabled {
         opacity: 0.5;
+        cursor: not-allowed;
     }
     
     &:hover {
