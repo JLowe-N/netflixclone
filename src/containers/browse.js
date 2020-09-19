@@ -56,8 +56,6 @@ export function BrowseContainer({ slides }) {
                             onClick={() => { setCategory('films') }}>
                             Films
                         </Header.Link>
-                    </Header.Group>
-                    <Header.Group>
                         <Header.ExternalButtonLink
                             target="_blank"
                             href="https://github.com/JLowe-N/netflixclone"

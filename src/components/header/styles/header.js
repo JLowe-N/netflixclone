@@ -51,10 +51,6 @@ export const Link = styled.p`
     &:hover {
         font-weight: bold;
     }
-
-    &:last-of-type {
-        margin-right: 0;
-    }
 `;
 
 export const RouteLink = styled(ReactRouterLink)`
@@ -172,7 +168,7 @@ export const Search = styled.div`
         cursor: pointer;
     }
 
-    @media(max-width: 700px) {
+    @media(max-width: 850px) {
         display: none;
     }
 `;
