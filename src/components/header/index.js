@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
-import { 
-    Background, 
-    Container, 
-    Logo, 
-    ButtonLink, 
-    Group, 
-    Text, 
+import {
+    Background,
+    Container,
+    Logo,
+    ButtonLink,
+    ExternalButtonLink,
+    Group,
+    Text,
     Link,
     RouteLink,
     Feature,
@@ -17,7 +18,7 @@ import {
     SearchInput,
     Profile,
     Picture,
-    Dropdown 
+    Dropdown
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...restProps }) {
@@ -28,7 +29,7 @@ Header.Frame = function HeaderFrame({ children, ...restProps }) {
     return <Container {...restProps}>{children}</Container>;
 }
 
-Header.Group = function HeaderGroup({ children, ...restProps}) {
+Header.Group = function HeaderGroup({ children, ...restProps }) {
     return <Group {...restProps}>{children}</Group>;
 }
 
@@ -39,7 +40,7 @@ Header.Logo = function HeaderLogo({ to, ...restProps }) {
         </ReactRouterLink>)
 }
 
-Header.Text = function HeaderText({ children , ...restProps }) {
+Header.Text = function HeaderText({ children, ...restProps }) {
     return <Text {...restProps}>{children}</Text>;
 }
 
@@ -47,15 +48,19 @@ Header.ButtonLink = function HeaderButtonLink({ children, ...restProps }) {
     return <ButtonLink {...restProps}>{children}</ButtonLink>;
 }
 
-Header.Link = function HeaderLink({ children , ...restProps }) {
+Header.ExternalButtonLink = function HeaderButtonLink({ children, ...restProps }) {
+    return <ButtonLink {...restProps}>{children}</ButtonLink>;
+}
+
+Header.Link = function HeaderLink({ children, ...restProps }) {
     return <Link {...restProps}>{children}</Link>;
 }
 
-Header.RouteLink = function HeadeRouteLink({ children , ...restProps }) {
+Header.RouteLink = function HeadeRouteLink({ children, ...restProps }) {
     return <RouteLink {...restProps}>{children}</RouteLink>;
 }
 
-Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps}) {
+Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }) {
     const [searchActive, setSearchActive] = useState(false);
     return (
         <Search {...restProps}>
@@ -64,7 +69,7 @@ Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps}
             </SearchIcon>
             <SearchInput
                 value={searchTerm}
-                onChange={({target}) => setSearchTerm(target.value)}
+                onChange={({ target }) => setSearchTerm(target.value)}
                 placeholder="Search films and series"
                 active={searchActive}
             />
@@ -84,7 +89,7 @@ Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
     return <PlayButton {...restProps}>{children}</PlayButton>;
 }
 
-Header.Profile = function HeaderProfile({ children, ...restProps}) {
+Header.Profile = function HeaderProfile({ children, ...restProps }) {
     return <Profile {...restProps}>{children}</Profile>
 }
 
@@ -92,6 +97,6 @@ Header.Picture = function HeaderPicture({ src, children, ...restProps }) {
     return <Picture src={`images/users/${src}.png`} {...restProps}>{children}</Picture>;
 }
 
-Header.Dropdown = function HeaderDropdown({ children, ...restProps}) {
+Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
     return <Dropdown {...restProps}>{children}</Dropdown>
 }

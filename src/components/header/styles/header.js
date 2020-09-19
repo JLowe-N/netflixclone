@@ -45,7 +45,7 @@ export const Link = styled.p`
     color: #fff;
     text-decoration: none;
     margin-right: 30px;
-    font-weight: ${({active}) => active ? '700' : 'normal'};
+    font-weight: ${({ active }) => active ? '700' : 'normal'};
     cursor: pointer;
 
     &:hover {
@@ -61,7 +61,7 @@ export const RouteLink = styled(ReactRouterLink)`
     color: #fff;
     text-decoration: none;
     margin-right: 30px;
-    font-weight: ${({active}) => active ? '700' : 'normal'};
+    font-weight: ${({ active }) => active ? '700' : 'normal'};
     cursor: pointer;
 
     &:hover {
@@ -74,6 +74,25 @@ export const RouteLink = styled(ReactRouterLink)`
 `;
 
 export const ButtonLink = styled(ReactRouterLink)`
+    display: block;
+    background-color: #e50914;
+    border-radius: 3px;
+    width: 84px;
+    color: white;
+    height: fit-content;
+    border: 0;
+    font-size: 15px;
+    padding: 8px 17px;
+    cursor: pointer;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    &:hover {
+        background: #f40612;
+    }
+`;
+
+export const ExternalButtonLink = styled.a`
     display: block;
     background-color: #e50914;
     border-radius: 3px;
@@ -176,14 +195,14 @@ export const SearchInput = styled.input`
     transition: width 0.5s;
     height: 30px;
     font-size: 14px;
-    margin-left: ${({active}) => (active === true ? '10px' : '0')};
-    padding: ${({active}) => (active === true ? '0 10px' : '0')};
-    opacity: ${({active}) => (active === true ? '1' : '0')};
-    width: ${({active}) => (active === true ? '200px' : '0px')};
+    margin-left: ${({ active }) => (active === true ? '10px' : '0')};
+    padding: ${({ active }) => (active === true ? '0 10px' : '0')};
+    opacity: ${({ active }) => (active === true ? '1' : '0')};
+    width: ${({ active }) => (active === true ? '200px' : '0px')};
 `;
 
 export const Picture = styled.button`
-    background: url(${({ src}) => src});
+    background: url(${({ src }) => src});
     background-size: contain;
     border: 0;
     width: 32px;
