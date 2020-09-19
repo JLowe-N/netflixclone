@@ -6,11 +6,11 @@ import { FooterContainer } from '../containers/footer';
 import { FirebaseContext } from '../context/firebase';
 
 export default function Profile() {
-    const [ displayName, setDisplayName ] = useState('');
-    const [ newDisplayName, setNewDisplayName ] = useState('');
-    const [ avatar, setAvatar ] = useState(null);
-    const [ newAvatar, setNewAvatar ] = useState(null);
-    const [ isUpdating, setIsUpdating] = useState(false);
+    const [displayName, setDisplayName] = useState('');
+    const [newDisplayName, setNewDisplayName] = useState('');
+    const [avatar, setAvatar] = useState(null);
+    const [newAvatar, setNewAvatar] = useState(null);
+    const [isUpdating, setIsUpdating] = useState(false);
 
     const { firebase } = useContext(FirebaseContext)
 
@@ -20,7 +20,7 @@ export default function Profile() {
         setDisplayName(user.displayName);
         setAvatar(user.photoURL);
     }, [isUpdating, user.displayName, user.photoURL])
-    
+
 
 
     const handleAvatarUpdate = () => {
@@ -59,7 +59,7 @@ export default function Profile() {
                             <Header.Picture src={avatar ? avatar : 1} />
                             <Header.Dropdown>
                                 <Header.Group>
-                                    <Header.Picture src={displayName} />
+                                    <Header.Picture src={avatar ? avatar : 1} />
                                     <Header.Link to={ROUTES.PROFILE}>{displayName}</Header.Link>
                                 </Header.Group>
                                 <Header.Group>
@@ -76,19 +76,19 @@ export default function Profile() {
                 <Info.Title>User Profile</Info.Title>
                 <Info.Text> Current Display Name: </Info.Text>
                 <Info.Text> {displayName} </Info.Text>
-                <Info.Input type="text" value={newDisplayName} onChange={({target}) => setNewDisplayName(target.value)} />
-                <Info.SubmitButton onClick={() => handleNameUpdate()} disabled={newDisplayName === ''}>{newDisplayName === '' ? "Select Name" : "Update Name" }</Info.SubmitButton>
+                <Info.Input type="text" value={newDisplayName} onChange={({ target }) => setNewDisplayName(target.value)} />
+                <Info.SubmitButton onClick={() => handleNameUpdate()} disabled={newDisplayName === ''}>{newDisplayName === '' ? "Select Name" : "Update Name"}</Info.SubmitButton>
                 <Info.Text> Current Avatar: </Info.Text>
                 <img src={`images/users/${avatar}.png`} alt="Your Avatar" />
                 <Info.Text> Please select a profile image:</Info.Text>
                 <Info.List>
-                    <Info.ImageSelect src="1" onClick={() => setNewAvatar(1)} alt="Avatar 1" highlight={newAvatar === 1}/>
-                    <Info.ImageSelect src="2" onClick={() => setNewAvatar(2)} alt="Avatar 2" highlight={newAvatar === 2}/>
-                    <Info.ImageSelect src="3" onClick={() => setNewAvatar(3)} alt="Avatar 3" highlight={newAvatar === 3}/>
-                    <Info.ImageSelect src="4" onClick={() => setNewAvatar(4)} alt="Avatar 4" highlight={newAvatar === 4}/>
-                    <Info.ImageSelect src="5" onClick={() => setNewAvatar(5)} alt="Avatar 5" highlight={newAvatar === 5}/>
+                    <Info.ImageSelect src="1" onClick={() => setNewAvatar(1)} alt="Avatar 1" highlight={newAvatar === 1} />
+                    <Info.ImageSelect src="2" onClick={() => setNewAvatar(2)} alt="Avatar 2" highlight={newAvatar === 2} />
+                    <Info.ImageSelect src="3" onClick={() => setNewAvatar(3)} alt="Avatar 3" highlight={newAvatar === 3} />
+                    <Info.ImageSelect src="4" onClick={() => setNewAvatar(4)} alt="Avatar 4" highlight={newAvatar === 4} />
+                    <Info.ImageSelect src="5" onClick={() => setNewAvatar(5)} alt="Avatar 5" highlight={newAvatar === 5} />
                 </Info.List>
-    <Info.SubmitButton onClick={() => handleAvatarUpdate()} disabled={!newAvatar}>{!newAvatar ? "Select Avatar" : "Update Avatar" }</Info.SubmitButton>
+                <Info.SubmitButton onClick={() => handleAvatarUpdate()} disabled={!newAvatar}>{!newAvatar ? "Select Avatar" : "Update Avatar"}</Info.SubmitButton>
             </Info>
             <FooterContainer />
         </>
