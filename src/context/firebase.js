@@ -1,3 +1,4 @@
-import { createContext } from 'react';
+/* eslint-disable import/prefer-default-export */
+import { createContext } from "react"
 
-export const FirebaseContext = createContext(null);
+export const FirebaseContext = createContext(null)

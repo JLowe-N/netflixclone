@@ -1,10 +1,10 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from "styled-components"
 
 export const LockBody = createGlobalStyle`
     body {
         overflow: hidden;
     }
-`;
+`
 
 export const Spinner = styled.div`
     position: fixed;
@@ -68,20 +68,20 @@ export const Spinner = styled.div`
     }
 
     }
-`;
+`
 
 export const Picture = styled.img`
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -22px;
-`;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -22px;
+`
 
 export const ReleaseBody = createGlobalStyle`
     body {
         overflow: visible;
     }
-`;
+`

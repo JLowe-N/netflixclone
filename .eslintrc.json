@@ -9,8 +9,11 @@
   "plugins": ["jsx-a11y", "prettier"],
   "rules": {
     "semi": 0,
+    "import/prefer-default-export": 1,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/prop-types": 1,
+    "react/prop-types": "off",
+    "react/forbid-prop-types": 0,
+    "react/jsx-props-no-spreading": 0,
     "prettier/prettier": [
       "error",
       {
