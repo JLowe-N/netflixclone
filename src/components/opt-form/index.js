@@ -1,5 +1,13 @@
 import React, { useState, useContext, createContext } from "react"
-import { Container, Input, ButtonLink, Text, Break } from "./styles/opt-form"
+import {
+  Container,
+  Label,
+  Group,
+  Input,
+  ButtonLink,
+  Text,
+  Break,
+} from "./styles/opt-form"
 
 const OptContext = createContext()
 
@@ -11,6 +19,22 @@ export default function OptForm({ children, ...restProps }) {
       <Container {...restProps}>{children}</Container>
     </OptContext.Provider>
   )
+}
+
+OptForm.Label = function OptFormLabel({
+  children,
+  floating = false,
+  ...restProps
+}) {
+  return (
+    <Label floating={floating} {...restProps}>
+      {children}
+    </Label>
+  )
+}
+
+OptForm.Group = function OptFormGroup({ children, ...restProps }) {
+  return <Group {...restProps}>{children}</Group>
 }
 
 OptForm.Input = function OptFormInput({ children, ...restProps }) {

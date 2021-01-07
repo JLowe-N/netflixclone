@@ -11,4 +11,14 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         margin: 0;
     }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+        color: #111;
+        transform: translate(-27rem, 0.5rem);
+
+        @media (max-width: 1100px) {
+            transform: translate(-13rem, -4rem);
+        }
+    }
 `

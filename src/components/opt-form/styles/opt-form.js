@@ -13,14 +13,46 @@ export const Container = styled.div`
     align-items: center;
   }
 `
+// Unintended transition during media query breakpoint
+// To-do: Turn off transition during breakpoint
+export const Label = styled.label`
+  ${({ floating }) =>
+    floating
+      ? `
+  display: block;
+  color: #999;
+  transform: translate(-27rem, 1.6rem);
+  transition: transform 0.2s ease-out;
+
+  @media (max-width: 1100px) {
+    transform: translate(-13rem, -2.75rem);
+  }
+  `
+      : null}
+  width: 0px;
+  overflow: visible;
+  white-space: nowrap;
+`
+
+export const Group = styled.div`
+  display: flex;
+  width: 75%;
+  justify-content: center;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`
 
 export const Input = styled.input`
-  max-width: 450px;
-  width: 100%;
+  width: 450px;
   border: 0;
-  padding: 10px;
+  padding-left: 18px;
+  padding-top: 20px;
   height: 70px;
   box-sizing: border-box;
+  font-size: 18px;
 `
 
 export const ButtonLink = styled(ReactRouterLink)`
@@ -33,18 +65,14 @@ export const ButtonLink = styled(ReactRouterLink)`
   text-transform: uppercase;
   padding: 0 32px;
   font-size: 26px;
-  border: 0;
   cursor: pointer;
+
+  @media (max-width: 1200px) {
+    font-size: 20px;
+  }
 
   a {
     text-decoration: none;
-  }
-
-  @media (max-width: 1000px) {
-    height: 50px;
-    font-size: 16px;
-    border-radius: 1px;
-    margin-top: 20px;
   }
 
   &:hover {
@@ -55,10 +83,6 @@ export const ButtonLink = styled(ReactRouterLink)`
     margin-left: 10px;
     filter: brightness(0) invert(1);
     width: 24px;
-
-    @media (max-width: 600px) {
-      width: 16px;
-    }
   }
 `
 
