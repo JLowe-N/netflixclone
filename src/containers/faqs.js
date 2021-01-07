@@ -18,8 +18,25 @@ export default function FaqsContainer() {
       </Accordion.Frame>
 
       <OptForm>
-        <OptForm.Input placeholder="Email address" />
-        <OptForm.ButtonLink>Try 30 Days Free</OptForm.ButtonLink>
+        <OptForm.Group>
+          <OptForm.Input
+            type="email"
+            id="id_email_faqs"
+            placeholder=" "
+            autoComplete="email"
+            minLength="5"
+            maxLength="50"
+          />
+          <OptForm.Label
+            floating="true"
+            htmlFor="id_email_faqs"
+            className="placeLabel"
+          >
+            Email Address
+          </OptForm.Label>
+          <OptForm.ButtonLink>Try 30 Days Free</OptForm.ButtonLink>
+        </OptForm.Group>
+        <OptForm.Break />
         <OptForm.Text>
           Ready to watch? Enter your email to create or restart your membership.
         </OptForm.Text>

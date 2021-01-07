@@ -36,7 +36,6 @@ export const Label = styled.label`
 
 export const Group = styled.div`
   display: flex;
-  width: 75%;
   justify-content: center;
 
   @media (max-width: 1100px) {
